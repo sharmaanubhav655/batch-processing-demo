@@ -44,6 +44,7 @@ public class SpringBatchConfig {
         return itemReader;
     }
 
+    //Helper method to convert a raw line of text from csv file into a domain object i.e., Customer in this case
     private LineMapper<Customer> lineMapper() {
 
         var lineTokenizer = new DelimitedLineTokenizer();
