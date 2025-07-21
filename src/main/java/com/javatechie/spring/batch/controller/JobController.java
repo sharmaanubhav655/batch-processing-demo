@@ -29,6 +29,7 @@ public class JobController {
             jobLauncher.run(job, jobParameters);
         } catch (JobExecutionAlreadyRunningException | JobRestartException | JobInstanceAlreadyCompleteException
                  | JobParametersInvalidException e) {
+            System.out.println("Process failed");
             e.printStackTrace();
         }
     }

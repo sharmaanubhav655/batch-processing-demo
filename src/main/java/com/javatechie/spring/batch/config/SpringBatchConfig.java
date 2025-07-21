@@ -20,6 +20,7 @@ import org.springframework.batch.item.file.transform.DelimitedLineTokenizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.convert.support.DefaultConversionService;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.task.TaskExecutor;
 import org.springframework.transaction.PlatformTransactionManager;
 
@@ -38,6 +39,7 @@ public class SpringBatchConfig {
         var itemReader = new FlatFileItemReader<Customer>();
         itemReader.setName("csvReader");
         itemReader.setLinesToSkip(1);
+        itemReader.setResource(new ClassPathResource("customers.csv"));
         itemReader.setLineMapper(lineMapper());
         return itemReader;
     }
